@@ -7,6 +7,7 @@ use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
 {
@@ -27,6 +28,7 @@ class OrderController extends Controller
     public function store(OrderRequest $request)
     {
         $data = $request->validated();
+
         $total = collect($data['items'])->sum(fn($item) => $item['price'] * $item['quantity']);
 
         $order = Order::create([
@@ -35,8 +37,10 @@ class OrderController extends Controller
             'total' => $total,
         ]);
 
+        Log::info($order);
         return new OrderResource($order);
     }
+
 
     public function update(OrderRequest $request, Order $order)
     {

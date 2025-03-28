@@ -24,7 +24,7 @@ class OrderRequest extends FormRequest
             'items.*.product_name' => ['required', 'string', 'max:255'],
             'items.*.quantity' => ['required', 'integer', 'min:1'],
             'items.*.price' => ['required', 'numeric', 'min:0.01'],
-            'status' => ['required', 'in:pending,confirmed,canceled'],
+            'status' => ['nullable', 'in:pending,confirmed,canceled'],
         ];
     }
 }
