@@ -24,6 +24,7 @@ class UpdateOrderRequest extends FormRequest
             'items.*.product_name' => 'sometimes|string|max:255',
             'items.*.quantity' => 'sometimes|integer|min:1',
             'items.*.price' => 'sometimes|numeric|min:0',
+            'status' => 'required',
         ];
     }
 }
