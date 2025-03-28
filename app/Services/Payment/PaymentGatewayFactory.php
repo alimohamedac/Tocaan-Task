@@ -9,6 +9,8 @@ class PaymentGatewayFactory
         return match ($gateway) {
             'stripe' => new StripeService(),
             //'paypal' => new PayPalService(),
+            // and so on
+
             default => throw new \Exception('Invalid Payment Gateway'),
         };
     }
