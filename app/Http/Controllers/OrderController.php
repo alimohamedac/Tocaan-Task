@@ -41,7 +41,7 @@ class OrderController extends Controller
     public function update(OrderRequest $request, Order $order)
     {
         if ($order->payments()->exists()) {
-            return response()->json(['message' => trans('Cannot update an order with payments')], 400);
+            return response()->json(['message' => trans('cannot_update_paid_order')], 400);
         }
 
         $order->update($request->validated());
@@ -51,10 +51,11 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         if ($order->payments()->exists()) {
-            return response()->json(['message' => trans('Cannot delete an order with payments')], 400);
+            return response()->json(['message' => trans('cannot_delete_paid_order')], 400);
         }
 
         $order->delete();
-        return response()->json(['message' => trans('Order deleted successfully')]);
+        return response()->json(['message' => trans('order_deleted')]);
     }
+
 }
