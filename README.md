@@ -46,3 +46,8 @@ STRIPE_SECRET=sk_test_xxx
   ```
   php artisan serve
   ```
+
+* Adding a New Payment Gateway
+ - Create a new class in app/Services/Payment/
+ - Add it to PaymentGatewayFactory
+ - Update .env
