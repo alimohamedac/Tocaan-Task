@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\OrderRequest;
+use App\Http\Requests\StoreOrderRequest;
+use App\Http\Requests\UpdateOrderRequest;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class OrderController extends Controller
         return OrderResource::collection($orders);
     }
 
-    public function store(OrderRequest $request)
+    public function store(StoreOrderRequest $request)
     {
         $data = $request->validated();
 
@@ -35,14 +36,15 @@ class OrderController extends Controller
             'user_id' => Auth::id(),
             'items' => $data['items'],
             'total' => $total,
+            'status' => 'pending',
         ]);
 
-        Log::info($order);
+       // Log::info($order);
         return new OrderResource($order);
     }
 
 
-    public function update(OrderRequest $request, Order $order)
+    public function update(UpdateOrderRequest $request, Order $order)
     {
         if ($order->payments()->exists()) {
             return response()->json(['message' => trans('cannot_update_paid_order')], 400);
