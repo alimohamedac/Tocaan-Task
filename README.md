@@ -9,12 +9,14 @@ php artisan key:generate
 
 * Configure Database
 1 - Update the .env file:
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=your_database
-DB_USERNAME=root
-DB_PASSWORD=
+  ```
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=your_database
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
 2 - Run migrations:
   ```
   php artisan migrate
@@ -35,9 +37,10 @@ DB_PASSWORD=
   ```
 * Configure Payment Gateway
   - Update .env
-
+```
 PAYMENT_GATEWAY=stripe
 STRIPE_SECRET=sk_test_xxx
+```
 
 * Run the Application
   ```
