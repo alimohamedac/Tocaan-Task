@@ -1,10 +1,10 @@
 {
-    "order_created": "Order created successfully.",
-    "order_updated": "Order updated successfully.",
-    "order_deleted": "Order deleted successfully.",
-    "cannot_update_paid_order": "Cannot update an order with payments.",
-    "cannot_delete_paid_order": "Cannot delete an order with payments.",
-    "payment_successful": "Payment successful.",
-    "payment_failed": "Payment failed.",
-    "order_not_confirmed": "Payments are allowed only for confirmed orders."
+    "order_created": "تم إنشاء الطلب بنجاح.",
+    "order_updated": "تم تحديث الطلب بنجاح.",
+    "order_deleted": "تم حذف الطلب بنجاح.",
+    "cannot_update_paid_order": "لا يمكن تحديث الطلب الذي يحتوي على دفعات.",
+    "cannot_delete_paid_order": "لا يمكن حذف الطلب الذي يحتوي على دفعات.",
+    "payment_successful": "تم الدفع بنجاح.",
+    "payment_failed": "فشل الدفع.",
+    "order_not_confirmed": "الدفع مسموح فقط للطلبات المؤكدة."
 }
