@@ -13,7 +13,6 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'auth:jwt',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
@@ -21,8 +20,7 @@ class Kernel extends HttpKernel
 
     protected $middlewareAliases = [
         'auth' => \App\Http\Middleware\Authenticate::class,
-        //'role' => \App\Http\Middleware\RoleMiddleware::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-       // 'setLocale' => \App\Http\Middleware\SetUserLocale::class,
+        'setLocale' => \App\Http\Middleware\SetUserLocale::class,
     ];
 }
